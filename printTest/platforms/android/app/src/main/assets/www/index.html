@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta name="viewport" content="width=320; user-scalable=no" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Cordova Tests</title>
+	<link rel="stylesheet" href="css/master.css" type="text/css" media="screen" title="no title">
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+	<script type="text/javascript" charset="utf-8" src="JXPrintPlugin.js"></script>
+	<script>
+
+		var successCallback = function (result) {
+			alert(result)
+		};
+		var errorCallback = function (error) {
+			alert("failed: " + error)
+		};
+		function connectPrinter() {
+			//连接打印机
+			try {
+				cordova.plugins.JXPrintPlugin.connectPrinter(successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function closeConnect() {
+			//断开连接
+			try {
+				cordova.plugins.JXPrintPlugin.closeConnect(successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function setPaperType() {
+			//设置纸类型
+			try {
+				var jsonstr = [0];
+				cordova.plugins.JXPrintPlugin.setPaperType(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function setDensity() {
+			//设置浓度
+			try {
+				var jsonstr = [2];
+				cordova.plugins.JXPrintPlugin.setDensity(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function setPaperFeed() {
+			//走纸
+			try {
+				var jsonstr = [5];
+				cordova.plugins.JXPrintPlugin.setPaperFeed(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function setPaperBack() {
+			//退纸
+			try {
+				var jsonstr = [1];
+				cordova.plugins.JXPrintPlugin.setPaperBack(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function printSelfCheck() {
+			//打印自检页
+			try {
+				cordova.plugins.JXPrintPlugin.printSelfCheck(successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function printText() {
+			//打印文本
+			try {
+				var jsonstr = ["打印文本演示\n"];
+				cordova.plugins.JXPrintPlugin.printText(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+
+	</script>
+</head>
+
+<body onload="onLoad()" onunload="onUnLoaded()" id="stage" class="theme">
+	<h1>jxprint js test</h1>
+	<div id="info">
+		<h4>jxprint js test</h4>
+	</div>
+	<div>
+		<button class="btn large" style="width:100px;height:50px" onclick="connectPrinter();"> 连接打印机 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="closeConnect();"> 断开连接 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="setPaperType();"> 设置纸类型 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="setDensity();"> 设置浓度 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="setPaperFeed();"> 走纸 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="setPaperBack();"> 退纸 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="printSelfCheck();"> 打印自检页 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="printText();"> 打印文本 </button>
+	</div>
+</body>
+
+</html>
