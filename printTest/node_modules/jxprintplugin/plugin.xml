@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin id="cordova-plugin-speedata-jxprint" 
-version="1.0.1" 
+version="1.0.2" 
 xmlns="http://apache.org/cordova/ns/plugins/1.0" 
 xmlns:android="http://schemas.android.com/apk/res/android">
 	<name>
 		JXPrintPlugin
 	</name>
 	<js-module name="JXPrintPlugin" src="www/JXPrintPlugin.js">
-		<clobbers target="cordova.plugins.JXPrintPlugin" />
+		<clobbers target="JXPrintPlugin" />
 	</js-module>
 	<platform name="android">
 		<config-file parent="/*" target="res/xml/config.xml">

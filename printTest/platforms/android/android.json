@@ -13,8 +13,23 @@
               "count": 1
             },
             {
+              "xml": "<feature name=\"LPAPIPlugin\"><param name=\"android-package\" value=\"com.dothantech.lpapi.cordova.LPAPIPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
               "xml": "<feature name=\"JXPrintPlugin\"><param name=\"android-package\" value=\"cordova.plugin.speedata.jxprint.JXPrintPlugin\" /></feature>",
               "count": 1
+            }
+          ]
+        }
+      },
+      "AndroidManifest.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+              "count": 1,
+              "id": "config.xml"
             }
           ]
         }
@@ -25,6 +40,9 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.speedata.cordova.printTest"
     },
+    "cordova-plugin-lpapi": {
+      "PACKAGE_NAME": "com.speedata.cordova.printTest"
+    },
     "cordova-plugin-speedata-jxprint": {
       "PACKAGE_NAME": "com.speedata.cordova.printTest"
     }
@@ -32,16 +50,41 @@
   "dependent_plugins": {},
   "modules": [
     {
+      "id": "cordova-plugin-lpapi.LPAPIPlugin",
+      "file": "plugins/cordova-plugin-lpapi/www/android/LPAPIPlugin.js",
+      "pluginId": "cordova-plugin-lpapi",
+      "clobbers": [
+        "LPAPIPlugin"
+      ]
+    },
+    {
+      "id": "cordova-plugin-lpapi.lpapiModel",
+      "file": "plugins/cordova-plugin-lpapi/www/ios/lpapiModel.js",
+      "pluginId": "cordova-plugin-lpapi",
+      "clobbers": [
+        "lpapiModel"
+      ]
+    },
+    {
+      "id": "cordova-plugin-lpapi.LPAPI",
+      "file": "plugins/cordova-plugin-lpapi/www/LPAPI.js",
+      "pluginId": "cordova-plugin-lpapi",
+      "clobbers": [
+        "LPAPI"
+      ]
+    },
+    {
       "id": "cordova-plugin-speedata-jxprint.JXPrintPlugin",
       "file": "plugins/cordova-plugin-speedata-jxprint/www/JXPrintPlugin.js",
       "pluginId": "cordova-plugin-speedata-jxprint",
       "clobbers": [
-        "cordova.plugins.JXPrintPlugin"
+        "JXPrintPlugin"
       ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-whitelist": "1.3.4",
-    "cordova-plugin-speedata-jxprint": "1.0.1"
+    "cordova-plugin-lpapi": "1.0.4",
+    "cordova-plugin-speedata-jxprint": "1.0.2"
   }
 }

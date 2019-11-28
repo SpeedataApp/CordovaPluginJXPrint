@@ -15,12 +15,12 @@
 			alert(result)
 		};
 		var errorCallback = function (error) {
-			alert("failed: " + error)
+			alert(error)
 		};
 		function connectPrinter() {
 			//连接打印机
 			try {
-				cordova.plugins.JXPrintPlugin.connectPrinter(successCallback, errorCallback);
+				JXPrintPlugin.connectPrinter(successCallback, errorCallback);
 			} catch (error) {
 				alert("Error: " + error)
 			}
@@ -28,7 +28,7 @@
 		function closeConnect() {
 			//断开连接
 			try {
-				cordova.plugins.JXPrintPlugin.closeConnect(successCallback, errorCallback);
+				JXPrintPlugin.closeConnect(successCallback, errorCallback);
 			} catch (error) {
 				alert("Error: " + error)
 			}
@@ -37,7 +37,7 @@
 			//设置纸类型
 			try {
 				var jsonstr = [0];
-				cordova.plugins.JXPrintPlugin.setPaperType(jsonstr, successCallback, errorCallback);
+				JXPrintPlugin.setPaperType(jsonstr, successCallback, errorCallback);
 			} catch (error) {
 				alert("Error: " + error)
 			}
@@ -46,7 +46,7 @@
 			//设置浓度
 			try {
 				var jsonstr = [2];
-				cordova.plugins.JXPrintPlugin.setDensity(jsonstr, successCallback, errorCallback);
+				JXPrintPlugin.setDensity(jsonstr, successCallback, errorCallback);
 			} catch (error) {
 				alert("Error: " + error)
 			}
@@ -55,7 +55,7 @@
 			//走纸
 			try {
 				var jsonstr = [5];
-				cordova.plugins.JXPrintPlugin.setPaperFeed(jsonstr, successCallback, errorCallback);
+				JXPrintPlugin.setPaperFeed(jsonstr, successCallback, errorCallback);
 			} catch (error) {
 				alert("Error: " + error)
 			}
@@ -64,7 +64,7 @@
 			//退纸
 			try {
 				var jsonstr = [1];
-				cordova.plugins.JXPrintPlugin.setPaperBack(jsonstr, successCallback, errorCallback);
+				JXPrintPlugin.setPaperBack(jsonstr, successCallback, errorCallback);
 			} catch (error) {
 				alert("Error: " + error)
 			}
@@ -72,7 +72,7 @@
 		function printSelfCheck() {
 			//打印自检页
 			try {
-				cordova.plugins.JXPrintPlugin.printSelfCheck(successCallback, errorCallback);
+				JXPrintPlugin.printSelfCheck(successCallback, errorCallback);
 			} catch (error) {
 				alert("Error: " + error)
 			}
@@ -81,7 +81,88 @@
 			//打印文本
 			try {
 				var jsonstr = ["打印文本演示\n"];
-				cordova.plugins.JXPrintPlugin.printText(jsonstr, successCallback, errorCallback);
+				JXPrintPlugin.printText(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function printBarCode() {
+			//打印条码
+			try {
+				var jsonstr = [9, 0, 76, 6, "abc123"];
+				JXPrintPlugin.printBarCode(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function printImage() {
+			//打印图片
+			try {
+				var jsonstr = ["img.jpg", 3, 0, false];
+				JXPrintPlugin.printImage(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function printTable() {
+			//打印表格
+			try {
+				//创建表格
+				var tableTitle = ["品名;数量;单价;金额",";","14,6,6,6"];
+				JXPrintPlugin.createTable(tableTitle, null, errorCallback);
+				//添加行
+				var tableRow1 = ["保鲜袋;10.00;1;10.00"];
+				var tableRow2 = ["铁丝挂钩;5.00;2;10.00"];
+				var tableRow3 = ["雨伞;5.00;3;15.00"];
+				JXPrintPlugin.addRow(tableRow1, null, errorCallback);
+				JXPrintPlugin.addRow(tableRow2, null, errorCallback);
+				JXPrintPlugin.addRow(tableRow3, null, errorCallback);
+				//打印表格
+				JXPrintPlugin.printTable(successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function setFont() {
+			//设置字体
+			try {
+				var jsonstr = [0];
+				JXPrintPlugin.setFont(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function setPrinter() {
+			//设置打印格式
+			try {
+				var jsonstr = [0];
+				JXPrintPlugin.setPrinter(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function initPrinter() {
+			//初始化打印机，清除缓存
+			try {
+				JXPrintPlugin.initPrinter(successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function read() {
+			//获取返回值
+			try {
+				var jsonstr = [0];
+				JXPrintPlugin.read(jsonstr, successCallback, errorCallback);
+			} catch (error) {
+				alert("Error: " + error)
+			}
+		}
+		function sendBytesData() {
+			//发送数据
+			try {
+				var jsonstr = [0];
+				JXPrintPlugin.read(jsonstr, successCallback, errorCallback);
 			} catch (error) {
 				alert("Error: " + error)
 			}
@@ -100,10 +181,12 @@
 		<button class="btn large" style="width:100px;height:50px" onclick="closeConnect();"> 断开连接 </button>
 		<button class="btn large" style="width:100px;height:50px" onclick="setPaperType();"> 设置纸类型 </button>
 		<button class="btn large" style="width:100px;height:50px" onclick="setDensity();"> 设置浓度 </button>
-		<button class="btn large" style="width:100px;height:50px" onclick="setPaperFeed();"> 走纸 </button>
-		<button class="btn large" style="width:100px;height:50px" onclick="setPaperBack();"> 退纸 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="printBarCode();"> 打印条码 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="printTable();"> 打印表格 </button>
 		<button class="btn large" style="width:100px;height:50px" onclick="printSelfCheck();"> 打印自检页 </button>
 		<button class="btn large" style="width:100px;height:50px" onclick="printText();"> 打印文本 </button>
+		<button class="btn large" style="width:100px;height:50px" onclick="printImage();"> 打印图片 </button>
+
 	</div>
 </body>
 

@@ -7,6 +7,14 @@
     "is_top_level": true,
     "variables": {}
   },
+  "cordova-plugin-lpapi": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-lpapi"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
   "cordova-plugin-speedata-jxprint": {
     "source": {
       "type": "local",

@@ -14,6 +14,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-android": "^8.1.0",
+    "cordova-plugin-lpapi": "^1.0.4",
     "jxprintplugin": "file:../JXPrintPlugin"
   },
   "devDependencies": {
@@ -22,6 +23,7 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
+      "cordova-plugin-lpapi": {},
       "cordova-plugin-speedata-jxprint": {}
     },
     "platforms": [

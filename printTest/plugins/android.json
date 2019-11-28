@@ -10,6 +10,9 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.speedata.cordova.printTest"
     },
+    "cordova-plugin-lpapi": {
+      "PACKAGE_NAME": "com.speedata.cordova.printTest"
+    },
     "cordova-plugin-speedata-jxprint": {
       "PACKAGE_NAME": "com.speedata.cordova.printTest"
     }

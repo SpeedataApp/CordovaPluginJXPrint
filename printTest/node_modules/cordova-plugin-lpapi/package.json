@@ -1,0 +1,57 @@
+{
+  "_from": "cordova-plugin-lpapi",
+  "_id": "cordova-plugin-lpapi@1.0.4",
+  "_inBundle": false,
+  "_integrity": "sha512-IeZdLBHM5VMMVsVoMM1fUN+3qTuS6NNfzOEYDwRXZrzBb0jLP39hb0vgzofZcafxi6Di8QPbUUy4McKBKjn7fg==",
+  "_location": "/cordova-plugin-lpapi",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-lpapi",
+    "name": "cordova-plugin-lpapi",
+    "escapedName": "cordova-plugin-lpapi",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-lpapi/-/cordova-plugin-lpapi-1.0.4.tgz",
+  "_shasum": "7d41d96c4621e1269eba2cb5ec988e5f24b5f611",
+  "_spec": "cordova-plugin-lpapi",
+  "_where": "D:\\MyCordova\\CordovaPluginJXPrint\\printTest",
+  "author": {
+    "name": "DothanTech"
+  },
+  "bugs": {
+    "url": "https://github.com/GemHu/LPAPIPlugin/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-lpapi",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "lpapi cordova plugin",
+  "homepage": "https://github.com/GemHu/LPAPIPlugin#readme",
+  "keywords": [
+    "lpapi",
+    "lpapi-plugin",
+    "cordova-plugin-lpapi",
+    "lpapi-ios",
+    "lpapi-android"
+  ],
+  "license": "ISC",
+  "name": "cordova-plugin-lpapi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GemHu/LPAPIPlugin.git"
+  },
+  "version": "1.0.4"
+}
